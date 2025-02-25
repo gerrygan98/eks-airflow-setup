@@ -12,6 +12,8 @@ dags:
     branch: main
     subPath: "dags/"
     sshKeySecret: airflow-ssh-secret
+  persistence:
+    enabled: false
 extraSecrets:
   airflow-ssh-secret:
     data: |
