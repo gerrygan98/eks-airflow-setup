@@ -5,3 +5,14 @@ executor: KubernetesExecutor
 airflow:
   config:
     AIRFLOW__CORE__LOAD_EXAMPLES: "False"
+dags:
+  gitSync:
+    enabled: true
+    repo: git@github.com:gerrygan98/eks-airflow-setup.git
+    branch: main
+    subPath: "dags/"
+    sshKeySecret: airflow-ssh-secret
+extraSecrets:
+  airflow-ssh-secret:
+    data: |
+      gitSshKey: '<base64-converted-ssh-private-key>'
