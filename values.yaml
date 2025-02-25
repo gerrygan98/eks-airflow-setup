@@ -1,0 +1,7 @@
+config:
+  webserver:
+    expose_config: 'True'  # by default this is 'False'
+executor: KubernetesExecutor
+airflow:
+  config:
+    AIRFLOW__CORE__LOAD_EXAMPLES: "False"
