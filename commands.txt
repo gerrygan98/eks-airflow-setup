@@ -1,0 +1,9 @@
+helm install airflow  apache-airflow/airflow -f values.yaml --namespace airflow
+
+
+helm upgrade airflow  apache-airflow/airflow -f values.yaml --namespace airflow
+helm get manifest airflow --namespace airflow > deployed.yaml
+
+kubectl port-forward svc/airflow-webserver 8080:8080 -n airflow
+
+helm uninstall airflow -n airflow
